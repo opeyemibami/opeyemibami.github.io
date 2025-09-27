@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>AI Portfolio — Neural Flow</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+  * { box-sizing: border-box; margin:0; padding:0; }
+  body { font-family: "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial;
+    background:#0a0a0a; color:#fff; overflow-x:hidden; scroll-behavior:smooth; }
+  #bg-canvas { position:fixed; inset:0; width:100vw; height:100vh; z-index:-1; }
+
+  section { padding:20px; display:flex; flex-direction:column; align-items:center; text-align:center; }
+
+  .intro-container { max-width:1000px; width:100%; padding-top:40px; }
+  .name-picture { display:flex; align-items:center; gap:15px; justify-content:center; }
+  .name-intro { display:flex; flex-direction:column; align-items:center; }
+  h1 { font-size:2.6rem; background:linear-gradient(90deg,#66cccc,#99ccff); -webkit-background-clip:text; color:transparent; }
+  p { max-width:700px; margin:10px 0; color:#ccc; line-height:1.5; }
+
+  .profile-img { width:120px; height:120px; border-radius:50%; border:3px solid #66cccc; object-fit:cover; }
+
+  .social-icons { display:flex; gap:12px; margin-top:10px; }
+  .social-icons a { color:#66cccc; font-size:1.25rem; transition:color .2s; }
+  .social-icons a:hover { color:#99ccff; }
+
+  .card-intro, .card-section { background:rgba(255,255,255,0.04); padding:22px; border-radius:14px;
+    max-width:900px; width:100%; margin:18px auto 0; text-align:left; }
+  .card-section h2, .card-intro h2 { color:#66cccc; margin-bottom:10px; }
+
+  .cards, .projects-grid, .grid-2x2, .publications-grid, .consultations-grid, .blogs-grid {
+    display:grid; grid-template-columns:repeat(2,1fr); gap:18px; margin-top:18px;
+  }
+
+  .card { display:flex; flex-direction:column; justify-content:flex-start;
+    background:rgba(255,255,255,0.04); padding:18px; border-radius:12px;
+    min-height:160px; transition:transform .22s, background .22s; text-align:left; }
+  .card:hover { transform:translateY(-6px); background:rgba(255,255,255,0.06); }
+  .card h3 { color:#66cccc; margin-bottom:8px; font-size:1.05rem; }
+  .card p { color:#ccc; margin-bottom:10px; }
+
+  .card button {
+    align-self:center; padding:6px 12px; border-radius:6px;
+    border:2px solid #66cccc; background:transparent; color:#66cccc;
+    cursor:pointer; margin-top:auto; font-size:0.9rem;
+    transition:all .2s;
+  }
+  .card button:hover { background:rgba(102,204,204,0.09); color:#99ccff; border-color:#99ccff; }
+
+  .show-more-btn { background:transparent; border:2px solid #66cccc; padding:8px 12px;
+    border-radius:6px; color:#66cccc; cursor:pointer; margin-top:25px; }
+  .show-more-btn:hover { background:rgba(102,204,204,0.09); color:#99ccff; border-color:#99ccff; }
+
+  .outline-pill { display:inline-block; border:1px solid #99cccc; padding:2px 6px;
+    border-radius:10px; color:#99cccc; font-size:0.78rem; margin-right:6px; margin-bottom:6px; }
+
+  .timeline { display:flex; flex-direction:column; gap:16px; margin-top:14px; }
+  .timeline .card { max-width:820px; width:100%; }
+
+  @media(max-width:780px) {
+    .cards, .projects-grid, .grid-2x2, .publications-grid, .consultations-grid, .blogs-grid {
+      grid-template-columns:1fr; }
+    .name-picture { flex-direction:column; }
+    .nav-bar { display:none; }
+  }
+
+  .nav-bar { position:fixed; top:50%; right:12px; transform:translateY(-50%);
+    display:flex; flex-direction:column; gap:10px; z-index:40; }
+  .nav-bar a { display:flex; align-items:center; gap:6px; background:rgba(0,0,0,0.35);
+    color:#66cccc; padding:6px 10px; border-radius:8px; font-size:0.9rem; text-decoration:none; }
+  .nav-bar a.active, .nav-bar a:hover { background:rgba(102,204,204,0.25); color:#99ccff; }
+</style>
+</head>
+<body>
+<canvas id="bg-canvas"></canvas>
+
+<!-- NAV -->
+<nav class="nav-bar">
+  <a href="#intro">👤 Intro</a>
+  <a href="#experience">💼 Exp</a>
+  <a href="#skills">🛠 Skills</a>
+  <a href="#projects">📁 Projects</a>
+  <a href="#publications">📚 Pubs</a>
+  <a href="#consultations">💡 Consult</a>
+  <a href="#blogs">📝 Blogs</a>
+</nav>
+
+<!-- Intro -->
+<section id="intro">
+  <div class="intro-container">
+    <div class="name-picture">
+      <img src="static/yemi1.jpg" alt="Profile" class="profile-img">
+      <div class="name-intro">
+        <h1>Opeyemi Bamigbade</h1>
+        <p>AI Engineer | PhD Candidate | Neural Architect</p>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-github"></i></a>
+          <a href="#"><i class="fab fa-linkedin"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fas fa-envelope"></i></a>
+          <a href="#"><i class="fab fa-medium"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="card-intro">
+      <h2>About Me</h2>
+      <p>I specialize in tensor networks, neural architectures, and AI research.</p>
+      <div class="cards">
+        <div class="card"><h3>AI Engineering</h3><p>Building scalable AI platforms with TensorFlow & PyTorch.</p></div>
+        <div class="card"><h3>Research</h3><p>Developing efficient tensor architectures for simulations.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Experience -->
+<section id="experience" class="card-section">
+  <h2>Experience</h2>
+  <div class="timeline">
+    <div class="card"><h3>Senior AI Engineer</h3><p>AI Labs Inc.</p><p><span class="outline-pill">Jan 2022–Present</span><span class="outline-pill">Remote</span></p><p>Leading AI projects, ML pipelines, mentoring.</p></div>
+    <div class="card"><h3>AI Researcher</h3><p>DeepNeuro Research</p><p><span class="outline-pill">2019–2021</span><span class="outline-pill">On-site</span></p><p>Designed tensor models for NLP & vision.</p></div>
+  </div>
+</section>
+
+<!-- Skills -->
+<section id="skills" class="card-section">
+  <h2>Skills</h2>
+  <div class="cards">
+    <div class="card"><h3>AI Engineering</h3><ul><li>Python</li><li>TensorFlow</li><li>PyTorch</li></ul></div>
+    <div class="card"><h3>Research</h3><ul><li>Tensor Networks</li><li>Deep Learning</li></ul></div>
+  </div>
+</section>
+
+<!-- Projects -->
+<section id="projects" class="card-section">
+  <h2>Projects</h2>
+  <div class="projects-grid">
+    <div class="card"><h3>3D Neural Viz Tool</h3><p>Interactive tensor flows.</p><div><span class="outline-pill">Three.js</span></div><button>View Project</button></div>
+    <div class="card"><h3>AI SaaS Platform</h3><p>Cloud ML apps.</p><div><span class="outline-pill">Python</span></div><button>View Project</button></div>
+    <div class="card"><h3>ML Model Hub</h3><p>Reusable AI models.</p><div><span class="outline-pill">PyTorch</span></div><button>View Project</button></div>
+    <div class="card"><h3>Data Pipeline</h3><p>Automated dataset handling.</p><div><span class="outline-pill">Airflow</span></div><button>View Project</button></div>
+    <div class="card extra-card"><h3>Vision AI</h3><p>Image recognition system.</p><div><span class="outline-pill">PyTorch</span></div><button>View Project</button></div>
+    <div class="card extra-card"><h3>Language AI</h3><p>Transformer NLP system.</p><div><span class="outline-pill">TensorFlow</span></div><button>View Project</button></div>
+  </div>
+  <button class="show-more-btn" data-grid="projects-grid" data-label="Projects">Show More Projects</button>
+</section>
+
+<!-- Publications -->
+<section id="publications" class="card-section">
+  <h2>Research Publications</h2>
+  <div class="publications-grid grid-2x2">
+    <div class="card"><h3>Tensor Networks in NLP</h3><p>Tensor decomposition in NLP.</p><button>View Paper</button></div>
+    <div class="card"><h3>Efficient Deep Learning</h3><p>Faster training methods.</p><button>View Paper</button></div>
+    <div class="card extra-card"><h3>Graph Neural Nets</h3><p>Graph AI architectures.</p><button>View Paper</button></div>
+    <div class="card extra-card"><h3>Quantum-Inspired AI</h3><p>Quantum mechanics in AI.</p><button>View Paper</button></div>
+  </div>
+  <button class="show-more-btn" data-grid="publications-grid" data-label="Publications">Show More Publications</button>
+</section>
+
+<!-- Consultations -->
+<section id="consultations" class="card-section">
+  <h2>Consultations</h2>
+  <div class="consultations-grid grid-2x2">
+    <div class="card"><h3>AI Startup Mentor</h3><p>Advising startups.</p><button>Learn More</button></div>
+    <div class="card"><h3>Cloud AI Advisor</h3><p>Migrating workloads.</p><button>Learn More</button></div>
+    <div class="card extra-card"><h3>Enterprise AI</h3><p>Enterprise-scale AI.</p><button>Learn More</button></div>
+    <div class="card extra-card"><h3>Healthcare AI</h3><p>Medical imaging AI.</p><button>Learn More</button></div>
+  </div>
+  <button class="show-more-btn" data-grid="consultations-grid" data-label="Consultations">Show More Consultations</button>
+</section>
+
+<!-- Blogs -->
+<section id="blogs" class="card-section">
+  <h2>Blogs</h2>
+  <div class="blogs-grid grid-2x2">
+    <div class="card"><h3>Future of AI</h3><p>Trends in AI.</p><button>Read Article</button></div>
+    <div class="card"><h3>Tensor Tricks</h3><p>Efficient tensors.</p><button>Read Article</button></div>
+    <div class="card extra-card"><h3>AI in Healthcare</h3><p>Opportunities & risks.</p><button>Read Article</button></div>
+    <div class="card extra-card"><h3>Responsible AI</h3><p>Ethics in AI.</p><button>Read Article</button></div>
+  </div>
+  <button class="show-more-btn" data-grid="blogs-grid" data-label="Blogs">Show More Blogs</button>
+</section>
+
+<footer style="text-align:center;padding:30px 10px;color:#777;">&copy; 2025 Opeyemi Bamigbade</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/three@0.152.0/build/three.min.js"></script>
+<script>
+// --- Show More / Show Less ---
+function initShowMore(gridClass) {
+  const grid = document.querySelector('.' + gridClass);
+  const btn = document.querySelector(`[data-grid="${gridClass}"]`);
+  if (!grid || !btn) return;
+
+  const cards = Array.from(grid.children);
+  const extras = cards.slice(4);
+  extras.forEach(c => c.style.display = 'none');
+
+  btn.addEventListener('click', () => {
+    const hidden = extras[0].style.display === 'none';
+    extras.forEach(c => c.style.display = hidden ? 'flex' : 'none');
+    btn.textContent = hidden ? `Show Less ${btn.dataset.label}` : `Show More ${btn.dataset.label}`;
+  });
+}
+['projects-grid','publications-grid','consultations-grid','blogs-grid'].forEach(name => initShowMore(name));
+
+// --- Nav highlight ---
+const navLinks = Array.from(document.querySelectorAll('.nav-bar a'));
+const sections = Array.from(document.querySelectorAll('section'));
+function updateNav(){
+  const mid = window.scrollY + window.innerHeight/3;
+  sections.forEach((sec,i)=>{
+    if(sec.offsetTop <= mid && sec.offsetTop+sec.offsetHeight > mid){
+      navLinks.forEach(a=>a.classList.remove('active'));
+      navLinks[i]?.classList.add('active');
+    }
+  });
+}
+window.addEventListener('scroll', updateNav); updateNav();
+
+// --- Background 3D ---
+const canvas = document.getElementById('bg-canvas');
+const renderer = new THREE.WebGLRenderer({canvas, antialias:true});
+renderer.setSize(window.innerWidth, window.innerHeight);
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
+camera.position.z = 50;
+const geom = new THREE.BufferGeometry();
+const verts = [];
+for (let i=0; i<400; i++) verts.push((Math.random()-0.5)*200, (Math.random()-0.5)*200, (Math.random()-0.5)*200);
+geom.setAttribute('position', new THREE.Float32BufferAttribute(verts,3));
+const mat = new THREE.PointsMaterial({color:0x66cccc, size:1});
+const points = new THREE.Points(geom, mat);
+scene.add(points);
+function animate(){
+  requestAnimationFrame(animate);
+  points.rotation.y += 0.0002; // slower, subtle
+  renderer.render(scene, camera);
+}
+animate();
+window.addEventListener('resize', ()=>{camera.aspect=window.innerWidth/window.innerHeight; camera.updateProjectionMatrix(); renderer.setSize(window.innerWidth, window.innerHeight);});
+</script>
+</body>
+</html>
