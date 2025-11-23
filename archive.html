@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Archive – Opeyemi Bamigbade</title>
+
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      font-family:"Segoe UI",system-ui,sans-serif;
+      background:#0a0a0a;
+      color:#fff;
+      overflow-x:hidden;
+      scroll-behavior:smooth;
+    }
+    #bg-canvas {
+      position:fixed;
+      inset:0;
+      width:100vw;
+      height:100vh;
+      z-index:-1;
+    }
+
+    /* Page header */
+    section.header-section {
+      padding:35px 20px 10px;
+      text-align:center;
+      max-width:900px;
+      margin:auto;
+    }
+    section.footer-section {
+      padding:35px 20px 10px;
+      text-align:center;
+      max-width:900px;
+      margin:auto;
+    }
+    h1, h2 {
+      background:linear-gradient(90deg,#66cccc,#99ccff);
+      -webkit-background-clip:text;
+      color:transparent;
+    }
+    h1 {
+      font-size:2.4rem;
+      margin-bottom:10px;
+    }
+    p {
+      max-width:750px;
+      margin:10px auto 20px;
+      color:#ccc;
+      line-height:1.6;
+    }
+
+    .back-btn {
+      display:inline-block;
+      margin-top:15px;
+      padding:8px 12px;
+      border:2px solid #66cccc;
+      border-radius:6px;
+      color:#66cccc;
+      text-decoration:none;
+      transition:.25s;
+    }
+    .back-btn:hover {
+      background:rgba(102,204,204,.1);
+      color:#99ccff;
+      border-color:#99ccff;
+    }
+
+    /* TIMELINE (Previous Version) */
+    .timeline-year {
+      position:relative;
+      padding-left:60px;
+      max-width:1000px;
+      margin:40px auto;
+    }
+
+    .timeline-year:before {
+      content:"";
+      position:absolute;
+      left:30px;
+      top:0;
+      bottom:0;
+      width:2px;
+      background:rgba(102,204,204,0.25);
+    }
+
+    .year-label {
+      position:absolute;
+      left:0;
+      top:0;
+      background:#0a0a0a;
+      padding:4px 10px;
+      border-radius:6px;
+      border:1px solid #66cccc;
+      font-size:0.9rem;
+      font-weight:600;
+      color:#66cccc;
+    }
+
+    /* 2×2 cards grid */
+    .card-group {
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:18px;
+      margin-top:20px;
+    }
+
+    @media(max-width:780px) {
+      .timeline-year { padding-left:30px; }
+      .timeline-year:before { left:15px; }
+      .year-label { font-size:.8rem; left:-5px; }
+      .card-group { grid-template-columns:1fr; }
+    }
+
+    /* Cards */
+    .card {
+      background:rgba(255,255,255,0.04);
+      padding:18px;
+      border-radius:12px;
+      min-height:150px;
+      display:flex;
+      flex-direction:column;
+      transition:.25s;
+    }
+    .card:hover {
+      background:rgba(255,255,255,0.06);
+      transform:translateY(-4px);
+    }
+    .card h3 {
+      color:#66cccc;
+      margin-bottom:8px;
+      font-size:1.05rem;
+    }
+    .card p {
+      color:#ccc;
+      font-size:0.9rem;
+      line-height:1.45;
+      margin-bottom:10px;
+    }
+
+    /* View button */
+    .view-btn {
+      align-self:center;
+      margin-top:auto;
+      padding:6px 12px;
+      border-radius:6px;
+      border:2px solid #66cccc;
+      color:#66cccc;
+      background:transparent;
+      font-size:0.9rem;
+      cursor:pointer;
+      text-decoration:none;
+      transition:.25s;
+    }
+    .view-btn:hover {
+      background:rgba(102,204,204,0.1);
+      color:#99ccff;
+      border-color:#99ccff;
+    }
+
+    footer {
+      text-align:center;
+      padding:30px 10px;
+      color:#777;
+    }
+  </style>
+</head>
+
+<body>
+
+<canvas id="bg-canvas"></canvas>
+
+<section class="header-section">
+  <h1>Archive</h1>
+  <p>
+    Older projects, experiments, prototypes & writings that shaped my journey.
+    Preserved here without overshadowing my new direction.
+  </p>
+  <a href="index.html" class="back-btn">← Back to Main Portfolio</a>
+</section>
+
+<!-- ===== YEAR 2021 ===== -->
+<section class="timeline-year">
+  <div class="year-label">2021</div>
+
+  <div class="card-group">
+
+    <div class="card">
+      <h3>Fullstack Blog App</h3>
+      <p>Node.js app with authentication, roles, CRUD posts.</p>
+      <a class="view-btn" href="#" target="_blank">View →</a>
+    </div>
+
+    <div class="card">
+      <h3>Weather App</h3>
+      <p>OpenWeather API dashboard with dynamic UI.</p>
+      <a class="view-btn" href="#" target="_blank">View →</a>
+    </div>
+
+    <div class="card">
+      <h3>Portfolio v2 Prototype</h3>
+      <p>My second portfolio experiment using vanilla JS.</p>
+      <a class="view-btn" href="#" target="_blank">View →</a>
+    </div>
+
+    <div class="card">
+      <h3>CLI Automation Tool</h3>
+      <p>A command-line tool for project scaffolding.</p>
+      <a class="view-btn" href="#" target="_blank">View →</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== YEAR 2020 ===== -->
+<section class="timeline-year">
+  <div class="year-label">2020</div>
+
+  <div class="card-group">
+
+    <div class="card">
+      <h3>Stock Market Visualizer</h3>
+      <p>Flask app charting stock movement and indicators.</p>
+      <a class="view-btn" href="#" target="_blank">View →</a>
+    </div>
+
+    <div class="card">
+      <h3>Portfolio v1</h3>
+      <p>My first website ever, entirely hand-coded.</p>
+      <a class="view-btn" href="#" target="_blank">View →</a>
+    </div>
+
+    <div class="card">
+      <h3>CSV Analyzer Tool</h3>
+      <p>Desktop script for cleaning and processing CSV files.</p>
+      <a class="view-btn" href="#" target="_blank">View →</a>
+    </div>
+
+    <div class="card">
+      <h3>Email Automation Script</h3>
+      <p>Python script for automated emailing.</p>
+      <a class="view-btn" href="#" target="_blank">View →</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== YEAR 2019 ===== -->
+<section class="timeline-year">
+  <div class="year-label">2019</div>
+
+  <div class="card-group">
+
+    <div class="card">
+      <h3>Simple CNN Classifier</h3>
+      <p>Small convolutional model — early CV foundation.</p>
+      <a class="view-btn" href="#" target="_blank">View →</a>
+    </div>
+
+    <div class="card">
+      <h3>Spam Detector</h3>
+      <p>Naive Bayes email classifier.</p>
+      <a class="view-btn" href="#" target="_blank">View →</a>
+    </div>
+
+    <div class="card">
+      <h3>Face Detection App</h3>
+      <p>Haarcascade-based object detection.</p>
+      <a class="view-btn" href="#" target="_blank">View →</a>
+    </div>
+
+    <div class="card">
+      <h3>ML Playground</h3>
+      <p>Collection of experiments in sklearn + PyTorch.</p>
+      <a class="view-btn" href="#" target="_blank">View →</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== YEAR 2018 ===== -->
+<section class="timeline-year">
+  <div class="year-label">2018</div>
+
+  <div class="card-group">
+
+    <div class="card">
+      <h3>Why I Started ML</h3>
+      <p>A reflection on entering tech & AI.</p>
+      <a class="view-btn" href="#" target="_blank">View →</a>
+    </div>
+
+    <div class="card">
+      <h3>My First API</h3>
+      <p>REST API in Node.js (my backend beginnings).</p>
+      <a class="view-btn" href="#" target="_blank">View →</a>
+    </div>
+
+    <div class="card">
+      <h3>Edge AI Notes</h3>
+      <p>Running ML models on Raspberry Pi.</p>
+      <a class="view-btn" href="#" target="_blank">View →</a>
+    </div>
+
+    <div class="card">
+      <h3>Beginner Portfolio Tips</h3>
+      <p>My early writing on learning & building.</p>
+      <a class="view-btn" href="#" target="_blank">View →</a>
+    </div>
+</section>
+
+<section class="timeline-year">
+  <div class="year-label">Others</div>
+
+  <div class="card-group">
+
+    <div class="card">
+      <h3>National Diploma in Computer Engineering (Distinction)</h3>
+      <p>Finished top 1% in the program. Studied Software Engineering, Web Security, 
+        and Operating Systems. Served as Vice President of the National Association of Computer Engineering.</p>
+      <a class="view-btn" href="#" target="_blank">View →</a>
+    </div>
+</section>
+
+
+<section class="footer-section">
+  <a href="index.html" class="back-btn">← Back to Main Portfolio</a>
+</section>
+
+<footer>&copy; 2025 Opeyemi Bamigbade</footer>
+
+<!-- Background Animation -->
+<script src="https://cdn.jsdelivr.net/npm/three@0.152.0/build/three.min.js"></script>
+<script>
+  // --- Background 3D (softened) ---
+const canvas = document.getElementById("bg-canvas");
+
+if (canvas) {
+  const renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
+  renderer.setSize(window.innerWidth, window.innerHeight);
+
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(
+    75,
+    window.innerWidth / window.innerHeight,
+    0.1,
+    1000
+  );
+
+  camera.position.z = 80; // pulled back
+
+  const geom = new THREE.BufferGeometry();
+  const verts = [];
+
+  for (let i = 0; i < 400; i++) {
+    verts.push(
+      (Math.random() - 0.5) * 80, // smaller cluster
+      (Math.random() - 0.5) * 80,
+      (Math.random() - 0.5) * 180
+    );
+  }
+
+  geom.setAttribute("position", new THREE.Float32BufferAttribute(verts, 3));
+
+  const mat = new THREE.PointsMaterial({
+    color: 0x66cccc,
+    size: 0.5,        // smaller points
+    opacity: 0.35,    // softer
+    transparent: true
+  });
+
+  const points = new THREE.Points(geom, mat);
+  scene.add(points);
+
+  function animate() {
+    requestAnimationFrame(animate);
+    points.rotation.y += 0.00015; // slow subtle rotation
+    renderer.render(scene, camera);
+  }
+  animate();
+
+  window.addEventListener("resize", () => {
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+  });
+}
+
+</script>
+
+</body>
+</html>
