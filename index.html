@@ -215,6 +215,49 @@
         color: #99ccff;
         border-color: #99ccff;
       }
+      /* Peer Reviewing full-width + text fill + hover */
+      #service .service-card {
+        grid-column: 1 / -1;
+        width: 100%;
+        max-width: 1000px;
+        margin: 0 auto;
+        background: rgba(255, 255, 255, 0.04);
+        padding: 26px;
+        border-radius: 14px;
+        transition: transform 0.22s, background 0.22s;
+        display: flex;
+        flex-direction: column;
+      }
+
+      #service .service-card:hover {
+        transform: translateY(-6px);
+        background: rgba(255, 255, 255, 0.06);
+      }
+
+      /* Make paragraph span full card width */
+      #service .service-card p {
+        max-width: 100% !important;
+        width: 100%;
+        line-height: 1.6;
+      }
+
+      /* Center button like others */
+      #service .service-card button {
+        display: block;
+        margin: 20px auto 0 auto;
+        padding: 6px 12px;
+        border-radius: 6px;
+        border: 2px solid #66cccc;
+        background: transparent;
+        color: #66cccc;
+        cursor: pointer;
+        transition: all 0.2s;
+      }
+      #service .service-card button:hover {
+        background: rgba(102, 204, 204, 0.09);
+        color: #99ccff;
+        border-color: #99ccff;
+      }
 
       .outline-pill {
         display: inline-block;
@@ -379,6 +422,7 @@
       <a href="#skills">🛠 Skills</a>
       <a href="#projects">📁 Projects</a>
       <a href="#publications">📚 Publications</a>
+      <a href="#service">🧩 Peer Review</a>
       <a href="#consultations">💡 Consultations</a>
       <a href="#blogs">📝 Blogs</a>
       <a href="#connect">🔗 Connect</a>
@@ -404,11 +448,16 @@
               <a href="https://x.com/opeyemibami" target="_blank"
                 ><i class="fab fa-twitter"></i
               ></a>
-              <a href="https://medium.com/@opeyemibami" target="_blank"
-                ><i class="fab fa-medium"></i
-              ></a>
               <a href="mailto:bamigbadeopeyemi@gmail.com"
                 ><i class="fas fa-envelope"></i
+              ></a>
+              <a
+                href="https://scholar.google.com/citations?user=EYySFIwAAAAJ&hl=en"
+                target="_blank">
+                <i class="fas fa-graduation-cap"></i>
+              </a>
+              <a href="https://medium.com/@opeyemibami" target="_blank"
+                ><i class="fab fa-medium"></i
               ></a>
             </div>
           </div>
@@ -576,14 +625,14 @@
             prostate cancer severity assessment through AI-driven analysis.
           </p>
 
-          <ul style="margin-left: 15px; margin-top: 10px">
+          <ul style="margin-left: 15px; margin-top: 10px; opacity: 0.6;">
             <li>
-              <strong>President</strong>, University of Lagos Artificial
+              President, University of Lagos Artificial
               Intelligence Club
             </li>
             <li>
-              <strong>Ambassador</strong>, Zindi Africa (Data Science
-              Competition Platform equivalent to Kaggle in Africa)
+              Ambassador, Zindi Africa (Data Science
+              Competition Platform equivalent to Kaggle)
             </li>
           </ul>
 
@@ -614,7 +663,9 @@
           <ul>
             <li>Tensor Operations | Sparse Matrices | Quantization</li>
             <li>ONNX | TensorRT | TVM</li>
-            <li>VLMs | Attention Mechanisms | Transformers | Diffusion Models</li>
+            <li>
+              VLMs | Attention Mechanisms | Transformers | Diffusion Models
+            </li>
             <li>Representation Learning | Contrastive Learning</li>
             <li>Hugging Face | OpenCLIP | DeepSpeed</li>
             <li>Self-Supervised Learning | Few-Shot Learning</li>
@@ -799,12 +850,32 @@
       </button>
     </section>
 
+    <!-- Service & Reviewing -->
+    <section id="service" class="card-section">
+      <h2>Peer Reviewing</h2>
+
+      <div class="service-card">
+        <p>
+          I review for leading journals and conferences in Artificial
+          Intelligence, Machine Learning, Computer Vision, and Multimodal
+          Systems. My work includes evaluating research on deep learning
+          architectures, indoor scene Understanding, multimodal modeling,
+          tensor-based techniques, and applied AI systems.
+        </p>
+
+        <button
+          onclick="window.open('https://orcid.org/0009-0006-9391-0442', '_blank')">
+          View Profile
+        </button>
+      </div>
+    </section>
+
     <!-- consultations -->
     <section id="consultations" class="card-section">
       <h2>Consultations</h2>
       <div class="consultations-grid grid-2x2">
         <div class="card">
-          <h3>tegus.com -> Expert consultation</h3>
+          <h3>Expert Consultation -> tegus.com</h3>
           <p>
             Advising startups on Vector search algorithms and databases such as
             Qdrant, Weaviate, Redis, Milvus, and Elastic
@@ -814,7 +885,7 @@
           </button>
         </div>
         <div class="card">
-          <h3>mlops.community -> Technical writing</h3>
+          <h3>Technical Writing -> mlops.community</h3>
           <p>
             Technical writing series on Test-Driven Development in MLOps with
             code snippets
@@ -824,7 +895,7 @@
           </button>
         </div>
         <div class="card extra-card">
-          <h3>datakirt -> Expert AI training delivering</h3>
+          <h3>Expert AI Training Delivering -> Datakirk</h3>
           <p>
             Gave series of lectures on Data Science and Machine learning to
             practitioners and enthusiasts
@@ -915,6 +986,15 @@
           <a href="https://github.com/opeyemibami" target="_blank"
             >opeyemibami</a
           >
+        </p>
+        <p>
+          <i class="fas fa-graduation-cap"></i>
+          <strong>Scholar:</strong>
+          <a
+            href="https://scholar.google.com/citations?user=EYySFIwAAAAJ&hl=en"
+            target="_blank">
+            Opeyemi Bamigbade
+          </a>
         </p>
         <p>
           <i class="fab fa-medium"></i>
