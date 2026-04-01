@@ -3,7 +3,6 @@ name: Build and Deploy Portfolio
 on:
   workflow_dispatch:
   repository_dispatch:
-    types: [portfolio-update]
   push:
     branches:
       - main
@@ -11,7 +10,7 @@ on:
 permissions:
   contents: read
   pages: write
-  id-token: write 
+  id-token: write
 
 jobs:
   build-deploy:
@@ -27,7 +26,7 @@ jobs:
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '3.1'
+          ruby-version: "3.1"
           bundler-cache: true
 
       - name: Install dependencies
