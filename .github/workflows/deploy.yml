@@ -2,6 +2,8 @@ name: Build and Deploy Portfolio
 
 on:
   workflow_dispatch:
+  repository_dispatch:
+    types: [portfolio-update]
   push:
     branches:
       - main
