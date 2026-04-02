@@ -16,8 +16,3 @@ The website is built from a private source repository and deployed via GitHub Ac
 * GitHub Pages hosting
 
 ---
-
-## Notes
-
-The source code is intentionally private.
-This repository is used as a deployment surface only.
