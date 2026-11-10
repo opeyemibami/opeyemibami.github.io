@@ -18,10 +18,15 @@ jobs:
 
     steps:
       - name: Checkout private source repo
+        id: src
         uses: actions/checkout@v4
         with:
           repository: opeyemibami/portfolio-source
           token: ${{ secrets.PAT_TOKEN }}
+
+      - name: Record source commit
+        id: srcsha
+        run: echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
 
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
@@ -42,3 +47,5 @@ jobs:
 
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v4
+        env:
+          GITHUB_SHA: ${{ steps.srcsha.outputs.sha }}
